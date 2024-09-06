@@ -59,23 +59,21 @@ public class MainPageTest {
     public void uploadFile() throws AWTException {
         WebDriverWait wt = new WebDriverWait(driver, Duration.ofSeconds(120));
         wt.until(ExpectedConditions.elementToBeClickable(mainPage.uploadImageHome)).click();
-        utils.selectFile(System.getProperty("user.dir")+"/SpyneAI_Assignment/src/test/resources/files/images.jpeg");
+        utils.selectFile(System.getProperty("user.dir")+"/src/test/resources/files/images.jpeg");
     }
 
     //    @Test(description = "Invalid File Upload",priority = 3)
 //    public void checkInvalidFileUpload() {
-//
-//        assertEquals(driver.getTitle(), "All Developer Tools and Products by JetBrains");
+
 //    }
     @Test(description = "Image Upscaling", priority = 4)
     public void imageUpscaling() throws InterruptedException {
         driver.navigate().to("https://www.spyne.ai/image-enhancer/upload");
-        driver.manage().window().fullscreen();
-        mainPage.imageSelector.isDisplayed();
+        mainPage.imageSelector.isEnabled();
         mainPage.imageSelector.click();
-
         WebDriverWait wt = new WebDriverWait(driver, Duration.ofSeconds(120));
-        wt.until(ExpectedConditions.elementToBeClickable(mainPage.processButton)).click();
+        wt.until(ExpectedConditions.elementToBeSelected(mainPage.processButton));
+        mainPage.processButton.click();
 
     }
 

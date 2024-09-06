@@ -13,7 +13,7 @@ public class MainPage {
     @FindBy(css = "label[class='w-full h-full flex gap-1 items-center cursor-pointer']")
     public WebElement uploadButton;
 
-    @FindBy(xpath = "//body/div/div/div/div/div/div/div/div/div/div[2]/img[1]")
+    @FindBy(css = "body div div div div div div div div div div:nth-child(2) img:nth-child(1)")
     public WebElement imageSelector;
 
     @FindBy(xpath = "//div[@class='w-11/12 flex gap-3']/button[contains(.,'Process')]")
