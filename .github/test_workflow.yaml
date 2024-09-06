@@ -1,1 +1,21 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }}  🚀
+on: [ push ]
 
+jobs:
+  integration-tests:
+    runs-on: [ self-hosted, for-tests ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Start Test
+      - name: Install dependencies
+  run: |
+    mvn -DsuiteXml=testng-checkenv.xml -Dapp.env=true test
+
+    - name: Create test results
+        if: ${{ always() }}
+        run: |
+          allure --version
+          allure generate
