@@ -31,9 +31,8 @@ jobs:
     - name: Build with Maven | Install Dependencies
       run: mvn -B package --file pom.xml
     - name: Execute Tests
-      run: mvn -DsuiteXml=testng-checkenv.xml -Dapp.env=true test
-    - name: Create test results
-      run: allure generate
+      run: mvn -DsuiteXml=testng.xml
+
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph

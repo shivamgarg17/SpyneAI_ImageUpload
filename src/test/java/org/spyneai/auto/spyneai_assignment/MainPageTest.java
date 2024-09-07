@@ -4,7 +4,6 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.spyneai.auto.spyneai_assignment.utility.Utils;
 import org.testng.annotations.*;
 
 import static org.testng.Assert.*;
@@ -24,7 +23,6 @@ import java.time.Duration;
 public class MainPageTest {
     private WebDriver driver;
     private MainPage mainPage;
-    private Utils utils;
     String downloadDirectory = System.getProperty("user.dir") + "/src/test/resources/download";
 
 
@@ -38,7 +36,6 @@ public class MainPageTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         mainPage = new MainPage(driver);
-        utils = new Utils();
         driver.navigate().to("https://www.spyne.ai/image-upscaler");
     }
 
@@ -59,7 +56,7 @@ public class MainPageTest {
     public void uploadFile() throws AWTException {
         WebDriverWait wt = new WebDriverWait(driver, Duration.ofSeconds(120));
         wt.until(ExpectedConditions.elementToBeClickable(mainPage.uploadImageHome)).click();
-        utils.selectFile(System.getProperty("user.dir")+"/src/test/resources/files/images.jpeg");
+        mainPage.uploadImageHome.sendKeys(System.getProperty("user.dir")+"/src/test/resources/files/images.jpeg");
     }
 
     //    @Test(description = "Invalid File Upload",priority = 3)

@@ -17,4 +17,17 @@ Framework Structure:
 
 To Run this Project execute below commands:
   mvn -DsuiteXml=testNg.xml test
-  To Generate test Report use command, allure-generate or allure serve, Any of the above command will work
+  To Generate test Report use command, allure-generate or allure serve.
+
+**Project Structure**
+
+The project follows a modular structure, organizing code for easy maintenance.
+selenium-testng-framework/
+
+* `├── src/test/java
+* │   ├── tests          # Test classes containing test methods
+* │   ├── resources      # Test data and config files
+* │
+* ├── pom.xml            # Maven configuration file for managing dependencies
+* ├── testng.xml         # TestNG suite file
+* └── README.md          # This file`
